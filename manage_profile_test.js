@@ -1,0 +1,40 @@
+const { WebElement } = require("selenium-webdriver");
+const {Builder, By, Key, util} = require("selenium-webdriver");
+
+async function profil1(){
+    let driver = await new Builder().forBrowser("chrome").build();
+    const actions = driver.actions;
+    await driver.get("https://dev.safetysolutions.app/login");
+    await driver.findElement(By.xpath("//input[@type='text']")).sendKeys("aiss@example.com",Key.RETURN);
+    await driver.sleep(500);
+    await driver.findElement(By.xpath("//input[@type='password']")).sendKeys("aiss");
+    await driver.sleep(2000);
+    await driver.findElement(By.className("MuiLoadingButton-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root jss18 css-1eqougf")).click();
+    await driver.sleep(1000);
+    await driver.findElement(By.xpath("//*[contains(text(), 'Ustawienia')]")).click();
+    await driver.sleep(2000);
+    await driver.findElement(By.name("nameAndSurname")).sendKeys(Key.chord(Key.COMMAND, 'A' + Key.BACK_SPACE));
+    await driver.sleep(2000);
+    await driver.findElement(By.name("nameAndSurname")).sendKeys("Anna Bezpieczna");
+    await driver.sleep(2000);
+    await driver.findElement(By.className("jss88")).click();
+    await driver.sleep(2000);
+    await driver.findElement(By.name("position")).sendKeys(Key.chord(Key.COMMAND, 'A' + Key.BACK_SPACE));
+    await driver.sleep(2000);
+    await driver.findElement(By.name("position")).sendKeys("Test Selenium");
+    await driver.sleep(2000);
+    await driver.findElement(By.className("MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputMultiline MuiInputBase-inputHiddenLabel css-u36398")).sendKeys(Key.chord(Key.COMMAND, 'A' + Key.BACK_SPACE));
+    await driver.sleep(2000);
+    await driver.findElement(By.className("MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputMultiline MuiInputBase-inputHiddenLabel css-u36398")).sendKeys("Testy Selenium");
+    await driver.sleep(2000);
+    await driver.findElement(By.name("lang")).click();
+    await driver.sleep(2000);
+    await driver.findElement(By.className("MuiLoadingButton-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root jss123 css-1eqougf")).click();
+    await driver.sleep(2000);
+    await driver.findElement(By.className("jss34")).click();
+    await driver.sleep(2000);
+    await driver.findElement(By.xpath("//*[contains(text(), 'Wyloguj')]")).click();
+    await driver.sleep(2000);
+    await driver.quit();
+}
+profil1();
